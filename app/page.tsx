@@ -1,4 +1,5 @@
 import { About } from '@/components/about'
+import { CosmicBackdrop } from '@/components/cosmic-backdrop'
 import { Hero } from '@/components/hero'
 import { Program } from '@/components/program'
 import { SiteHeader } from '@/components/site-header'
@@ -8,6 +9,7 @@ import { event } from '@/lib/event'
 export default function Page() {
   return (
     <>
+      <CosmicBackdrop />
       <SiteHeader />
       <main>
         <Hero />

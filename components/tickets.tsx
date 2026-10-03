@@ -13,7 +13,7 @@ export function Tickets() {
         </h2>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <article className="flex flex-col justify-between gap-8 rounded-xl bg-primary p-8 text-primary-foreground">
+          <article className="flex flex-col justify-between gap-8 rounded-xl bg-primary p-8 text-primary-foreground shadow-[0_0_60px_-10px_oklch(0.58_0.22_295/0.7)]">
             <div>
               <Play className="size-6" aria-hidden="true" />
               <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight">Stream the premiere</h3>
@@ -33,7 +33,7 @@ export function Tickets() {
             </a>
           </article>
 
-          <article className="flex flex-col justify-between gap-8 rounded-xl border border-border bg-card p-8">
+          <article className="flex flex-col justify-between gap-8 rounded-xl border border-border bg-card p-8 backdrop-blur-md">
             <div>
               <Mail className="size-6 text-primary" aria-hidden="true" />
               <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight">Private screening</h3>

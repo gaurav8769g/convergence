@@ -48,25 +48,25 @@
 }
 
 :root {
-  color-scheme: light;
-  --background: oklch(0.985 0.006 300);
-  --foreground: oklch(0.2 0.04 295);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.04 295);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.04 295);
-  --primary: oklch(0.36 0.17 295);
-  --primary-foreground: oklch(0.985 0.006 300);
-  --secondary: oklch(0.95 0.02 300);
-  --secondary-foreground: oklch(0.3 0.12 295);
-  --muted: oklch(0.955 0.012 300);
-  --muted-foreground: oklch(0.48 0.04 295);
-  --accent: oklch(0.93 0.04 300);
-  --accent-foreground: oklch(0.3 0.15 295);
+  color-scheme: dark;
+  --background: oklch(0.13 0.04 295);
+  --foreground: oklch(0.97 0.01 300);
+  --card: oklch(0.2 0.06 295 / 0.55);
+  --card-foreground: oklch(0.97 0.01 300);
+  --popover: oklch(0.18 0.05 295);
+  --popover-foreground: oklch(0.97 0.01 300);
+  --primary: oklch(0.58 0.22 295);
+  --primary-foreground: oklch(0.99 0.005 300);
+  --secondary: oklch(0.24 0.07 295);
+  --secondary-foreground: oklch(0.92 0.03 300);
+  --muted: oklch(0.2 0.05 295);
+  --muted-foreground: oklch(0.76 0.04 295);
+  --accent: oklch(0.3 0.1 295 / 0.6);
+  --accent-foreground: oklch(0.9 0.08 300);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.02 300);
-  --input: oklch(0.9 0.02 300);
-  --ring: oklch(0.5 0.17 295);
+  --border: oklch(0.95 0.05 300 / 0.12);
+  --input: oklch(0.95 0.05 300 / 0.16);
+  --ring: oklch(0.65 0.2 295);
   --chart-1: oklch(0.36 0.17 295);
   --chart-2: oklch(0.5 0.15 295);
   --chart-3: oklch(0.65 0.1 295);
@@ -89,5 +89,76 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -6%, 0) scale(1.12);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@utility animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+@utility animate-drift-slow {
+  animation: drift 26s ease-in-out infinite reverse;
+}
+
+@utility animate-twinkle {
+  animation: twinkle 6s ease-in-out infinite;
+}
+
+@utility animate-scan {
+  animation: scan 6s linear infinite;
+}
+
+@utility bg-stars {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, oklch(1 0 0 / 0.8), transparent),
+    radial-gradient(1px 1px at 90px 120px, oklch(1 0 0 / 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, oklch(0.85 0.1 300 / 0.9), transparent),
+    radial-gradient(1px 1px at 230px 180px, oklch(1 0 0 / 0.5), transparent),
+    radial-gradient(1px 1px at 300px 90px, oklch(1 0 0 / 0.7), transparent);
+  background-size: 340px 220px;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(oklch(0.95 0.05 300 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.95 0.05 300 / 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-drift-slow,
+  .animate-twinkle,
+  .animate-scan {
+    animation: none;
   }
 }
