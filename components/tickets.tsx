@@ -13,9 +13,12 @@ export function Tickets() {
         </h2>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <article className="flex flex-col justify-between gap-8 rounded-xl bg-primary p-8 text-primary-foreground shadow-[0_0_60px_-10px_oklch(0.58_0.22_295/0.7)]">
+          <article className="group flex flex-col justify-between gap-8 rounded-xl bg-primary p-8 text-primary-foreground shadow-[0_0_60px_-10px_oklch(0.58_0.22_295/0.7)] transition-all duration-300 ease-out hover:shadow-[0_0_90px_-5px_oklch(0.58_0.22_295/0.95)] motion-safe:hover:-translate-y-1.5">
             <div>
-              <Play className="size-6" aria-hidden="true" />
+              <Play
+                className="size-6 transition-transform duration-300 motion-safe:group-hover:scale-125"
+                aria-hidden="true"
+              />
               <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight">Stream the premiere</h3>
               <p className="mt-2 leading-relaxed text-primary-foreground/80">
                 Join via the Virtual Digital Theatre &amp; Global Stream on {event.date} at {event.time}.
@@ -29,13 +32,20 @@ export function Tickets() {
               )}
             >
               Stream now
-              <ArrowRight data-icon="inline-end" aria-hidden="true" />
+              <ArrowRight
+                data-icon="inline-end"
+                className="transition-transform duration-300 motion-safe:group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </a>
           </article>
 
-          <article className="flex flex-col justify-between gap-8 rounded-xl border border-border bg-card p-8 backdrop-blur-md">
+          <article className="group flex flex-col justify-between gap-8 rounded-xl border border-border bg-card p-8 backdrop-blur-md transition-all duration-300 ease-out hover:border-primary/60 hover:shadow-[0_0_60px_-15px_oklch(0.58_0.22_295/0.7)] motion-safe:hover:-translate-y-1.5">
             <div>
-              <Mail className="size-6 text-primary" aria-hidden="true" />
+              <Mail
+                className="size-6 text-primary transition-transform duration-300 motion-safe:group-hover:scale-125"
+                aria-hidden="true"
+              />
               <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight">Private screening</h3>
               <p className="mt-2 leading-relaxed text-muted-foreground">
                 Request a private screening screener link by contacting the production team.
